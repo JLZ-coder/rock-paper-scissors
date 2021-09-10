@@ -7,8 +7,6 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     
-    let roundResult = "LOSE";
-    let returnPhrase = "";
     if (typeof playerSelection == "string") {
         playerSelection = playerSelection.slice(0,1).toUpperCase() + playerSelection.toLowerCase().slice(1);
     }
@@ -21,6 +19,10 @@ function playRound(playerSelection, computerSelection) {
 
 function evaluateChoices(playerSelection, computerSelection) {
 
+    let roundResult = "LOSE";
+    let returnPhrase = "";
+
+    
     if (playerSelection == computerSelection) {
         roundResult = "DRAW";
     }
