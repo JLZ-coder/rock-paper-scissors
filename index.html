@@ -7,11 +7,44 @@
         <link href="styles.css" rel="stylesheet">
     </head>
     <body>
-        <div id="playerWinCount">0</div>
-        <div id="computerWinCount">0</div>
-        <div id="results">WHO WILL WIN?</div>
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+        <div id="headLine">
+            <h1>ROCK, PAPER AND<small>(you guessed it)</small>SCISSORS</h1>
+            <p>PLAY WITH THE COMPUTER - FIRST TO SCORE 5 WINS!</p>
+        </div>
+
+        <div id="countPanel">
+            YOU
+            <div id="playerWinCount">0</div>
+            VS
+            <div id="computerWinCount">0</div>
+            CPU
+        </div>
+
+        <div id="roundResult">WHO WILL WIN?</div>
+
+        <div id="buttonsContainer">
+            <button id="rock">
+                <img id="rockImg" src="https://img.icons8.com/ios/100/000000/hand-rock.png"/>
+                <div class="newRoundText">
+                    NEW ROUND
+                </div>
+            </button>
+            <button id="paper">
+                <img id="paperImg" src="https://img.icons8.com/ios/100/000000/hand.png"/>
+                <div class="newRoundText">
+                    NEW ROUND
+                </div>
+            </button>
+            <button id="scissors">
+                <img id="scissorsImg" src="https://img.icons8.com/ios/100/000000/hand-peace--v1.png"/>
+                <div class="newRoundText">
+                    NEW ROUND
+                </div>
+            </button>
+        </div>
+
+        <footer>
+            <a href="https://icons8.com/icon/44378/hand-rock">Button icons by Icons8</a>
+        </footer>
     </body>
 </html>

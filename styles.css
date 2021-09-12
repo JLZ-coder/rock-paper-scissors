@@ -1,0 +1,68 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: aliceblue;
+    font-size: 1em;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#headLine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+small {
+    font-size: 0.3em;
+}
+
+#countPanel {
+    width: 75vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 1em;
+}
+
+#roundResult {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+
+#buttonsContainer {
+    width: 75vw;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1em;
+}
+
+#rock, #paper, #scissors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 153, 255, 1);
+}
+
+.newRoundText {
+    width: 100px;
+    position: absolute;
+    z-index: 0;
+    font-size: 2em;
+    color: orange;
+    font-weight: bold;
+}
+
+img {
+    height: 100px;
+    background-color: rgba(0, 153, 255, 1);
+    z-index: 1;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    padding: 1em;
+}

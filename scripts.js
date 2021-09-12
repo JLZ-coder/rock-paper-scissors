@@ -60,7 +60,12 @@ const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 const rpsButtons = [rockButton, paperButton, scissorsButton];
 
-let resultDiv = document.querySelector("#results");
+const rockImg = document.querySelector("#rockImg");
+const paperImg = document.querySelector("#paperImg");
+const scissorsImg = document.querySelector("#scissorsImg");
+const rpsImgs = [rockImg, paperImg, scissorsImg];
+
+let resultDiv = document.querySelector("#roundResult");
 
 let computerWinCount = document.querySelector("#computerWinCount");
 let playerWinCount = document.querySelector("#playerWinCount");
@@ -70,9 +75,7 @@ rpsButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     if (+playerWinCount.textContent == ROUNDS || +computerWinCount.textContent == ROUNDS) {
       resetGame();
-      rockButton.textContent = "Rock";
-      paperButton.textContent = "Paper";
-      scissorsButton.textContent = "Scissors";
+      changeImgStyle("visibility", "visible");
     }
     else {
       resultDiv.textContent = playRound(button.getAttribute("id"), computerPlay());
@@ -90,12 +93,12 @@ rpsButtons.forEach((button) => {
       
       if (+playerWinCount.textContent == ROUNDS) {
         resultDiv.textContent = "YOU WON!";
-        changeButtonsText("NEW ROUND")
+        changeImgStyle("visibility", "hidden");
 
       }
       else if (+computerWinCount.textContent == ROUNDS) {
         resultDiv.textContent = "YOU LOST!";
-        changeButtonsText("NEW ROUND")
+        changeImgStyle("visibility", "hidden");
       }
     }    
   })
@@ -107,10 +110,10 @@ function resetGame() {
   resultDiv.textContent = "WHO WILL WIN?";
 }
 
-function changeButtonsText(newText) {
-  rpsButtons.forEach((button) => {
-    button.textContent = newText;
-  })
+function changeImgStyle(attr, newValue) {
+  rpsImgs.forEach((img) => {
+    img.style[attr] = newValue;
+  });
 }
 
 
