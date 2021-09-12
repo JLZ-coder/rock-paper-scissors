@@ -53,4 +53,66 @@ function game(rounds) {
   }
 }
 
-game(5);
+const ROUNDS = 5;
+
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+const rpsButtons = [rockButton, paperButton, scissorsButton];
+
+let resultDiv = document.querySelector("#results");
+
+let computerWinCount = document.querySelector("#computerWinCount");
+let playerWinCount = document.querySelector("#playerWinCount");
+
+
+rpsButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    if (+playerWinCount.textContent == ROUNDS || +computerWinCount.textContent == ROUNDS) {
+      resetGame();
+      rockButton.textContent = "Rock";
+      paperButton.textContent = "Paper";
+      scissorsButton.textContent = "Scissors";
+    }
+    else {
+      resultDiv.textContent = playRound(button.getAttribute("id"), computerPlay());
+
+      let winCountIncremented = 0;
+
+      if (resultDiv.textContent.startsWith("You win!")) {
+        winCountIncremented = Number(playerWinCount.textContent) + 1;
+        playerWinCount.textContent = winCountIncremented.toString();
+      }
+      else if (resultDiv.textContent.startsWith("You lose!")) {
+        winCountIncremented = Number(computerWinCount.textContent) + 1;
+        computerWinCount.textContent = winCountIncremented.toString();
+      }
+      
+      if (+playerWinCount.textContent == ROUNDS) {
+        resultDiv.textContent = "YOU WON!";
+        changeButtonsText("NEW ROUND")
+
+      }
+      else if (+computerWinCount.textContent == ROUNDS) {
+        resultDiv.textContent = "YOU LOST!";
+        changeButtonsText("NEW ROUND")
+      }
+    }    
+  })
+});
+
+function resetGame() {
+  playerWinCount.textContent = "0";
+  computerWinCount.textContent = "0";
+  resultDiv.textContent = "WHO WILL WIN?";
+}
+
+function changeButtonsText(newText) {
+  rpsButtons.forEach((button) => {
+    button.textContent = newText;
+  })
+}
+
+
+
+
